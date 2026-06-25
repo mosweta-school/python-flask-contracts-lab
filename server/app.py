@@ -10,7 +10,7 @@ app = Flask(__name__)
 def get_contract(id):
     contract = next((contract for contract in contracts if contract["id"] == id), None)
     if contract:
-        return make_response(contract, 200)
+        return make_response(contract['contract_information'], 200)
     else:
         return make_response({"error": "Contract not found"}, 404)
     
