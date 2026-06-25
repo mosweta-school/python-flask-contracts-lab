@@ -6,7 +6,7 @@ contracts = [{"id": 1, "contract_information": "This contract is for John and bu
 customers = ["bob","bill","john","sarah"]
 app = Flask(__name__)
 
-@app.route('/contracts/<int:id>')
+@app.route('/contract/<int:id>')
 def get_contract(id):
     contract = next((contract for contract in contracts if contract["id"] == id), None)
     if contract:
@@ -14,7 +14,7 @@ def get_contract(id):
     else:
         return make_response({"error": "Contract not found"}, 404)
     
-@app.route('/customers/<name>')
+@app.route('/customer/<name>')
 def get_customer(name):
     customername = name
     if customername in customers:
